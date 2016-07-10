@@ -1,6 +1,7 @@
 from flask import Flask, request
 import requests
 import urllib
+from processor import simplifier
 
 app = Flask(__name__)
 
@@ -18,4 +19,4 @@ def browse(path=None):
         path = 'http://' + path
     print path
     r = s.get(path)
-    return r.content
+    return simplifier.simplify(r.content)
