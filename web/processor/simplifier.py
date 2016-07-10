@@ -8,6 +8,7 @@ def simplify(html):
     [s.extract() for s in soup('img')]
 
     soup.head.append(soup.new_tag("link", rel="stylesheet", type="text/css", href="/static/style.css"))
+    soup.head.append(soup.new_tag("script", src="/static/custom.js"))
 
     minhtml = html_minify(str(soup))
     return minhtml
