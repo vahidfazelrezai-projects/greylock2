@@ -1,2 +1,7 @@
+from bs4 import BeautifulSoup
+from htmlmin.minify import html_minify
+
 def simplify(html):
-    return html + '<script>alert("hiii")</script>'
+    soup = BeautifulSoup(html, 'html.parser')
+    minhtml = html_minify(str(soup))
+    return minhtml
